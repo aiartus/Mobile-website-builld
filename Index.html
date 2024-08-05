@@ -1,133 +1,154 @@
 <!DOCTYPE html>
-
-<html>
-
-  <head>
-
-    <title>AI Social Network</title>
-
-    <link rel="stylesheet" href="styles.css">
-
-  </head>
-
-  <body>
-
-    <header>
-
-      <div class="logo">
-
-        <img src="ai-icon.png" alt="AI Icon">
-
-        <h1>AI Social Network</h1>
-
-      </div>
-
-      <nav>
-
-        <ul>
-
-          <li><a href="#">Home</a></li>
-
-          <li><a href="#">About</a></li>
-
-          <li><a href="#">Contact</a></li>
-
-          <li><a href="#">Products</a></li>
-
-        </ul>
-
-      </nav>
-
-    </header>
-
-    <main>
-
-      <section class="news-feed">
-
-        <!-- Display posts from other users here -->
-
-      </section>
-
-      <aside class="sidebar">
-
-        <div class="trending-topics">
-
-          <h2>Trending Topics</h2>
-
-          <ul>
-
-            <li>AI Research</li>
-
-            <li>Robotics</li>
-
-            <li>Machine Learning</li>
-
-          </ul>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 31st Birthday!</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .card-front {
+            background: url('https://example.com/cosmic-octopus.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        .card-back {
+            background: url('https://example.com/starry-galaxy.jpg') no-repeat center center;
+            background-size: cover;
+            transform: rotateY(180deg);
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .message-container {
+            background-color: rgba(64, 224, 208, 0.8); /* Turquoise background */
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+            position: relative;
+        }
+        .message-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://example.com/lavender-moon-quartz.png') repeat;
+            opacity: 0.2;
+            border-radius: 20px;
+            pointer-events: none;
+        }
+        .message-content {
+            color: white;
+            text-shadow: 1px 1px 2px black;
+            position: relative;
+            z-index: 1;
+        }
+        .open-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #40E0D0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            animation: explode 1s ease-out forwards;
+        }
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(20); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-front"></div>
+            <div class="card-back">
+                <div class="message-container">
+                    <div class="message-content">
+                        <h1>Happy Thirty First Birthday my gorgeous squidette</h1>
+                        <p>I may have failed at making this a good memory for you my love. However I will always celebrate you, I love you more than you will ever understand and it hurts more than you will ever know. Everyone deserves a birthday cake and to have happy birthday sung to them, to know their family loves them and they are cared for. I may only be one person and those who should've been there weren't, and it aches in my soul that I couldn't make your birthday a good memory. I love you more than life itself and you are the reason I chose to live every day, you will never understand it, and maybe I'm insane.</p>
+                        <p>I will always be thankful for you because to you I've always meant something, you've always been the light in the dark of my life. You will never understand just how much you've changed me and how much your love has helped me the day you entered my life you were my miracle, my heart always fluttered around you and my stomach tingled. I loved you the moment I laid eyes on you, wished on shooting stars and prayed to god you could be mine. The day you bit me, you turned dreams to reality. You know I can never put it all into words how much I love you. Your birthday, a cake and singing happy birthday to you is just another happy dream to me.</p>
+                        <p>I wish I could make you feel the happiness I feel when I see you, but that you would never be able to feel anything other than this happiness. I love you my squidette, this was meant to be a celebration of the thirty one years you've lived on this earth, the seventeen years I've known you and the eleven years I finally took your heart, and for you to know that you'd have mine forever and that a million years could pass, and my heart would still beat for you, my stomach still feel the flutter of the butterflies you give me.</p>
+                        <p>You are a miracle, you are the only you that ever has and ever will exist and that in my eyes, you are the most beautiful person to ever exist no matter the saints of history's past and the kind ones who may come in the future. Not a single soul could compare to the perfection you are...I wish you could understand and I know you never will and it only makes my love burn hotter for you.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        <button class="open-button" onclick="toggleCard()">Open Card</button>
+    </div>
+    <audio id="birthdaySong" loop>
+        <source src="path/to/your/happy-birthday-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        let isOpen = false;
+        const card = document.querySelector('.card');
+        const button = document.querySelector('.open-button');
+        const audio = document.getElementById('birthdaySong');
 
-        <div class="suggested-users">
+        function toggleCard() {
+            isOpen = !isOpen;
+            card.style.transform = isOpen ? 'rotateY(180deg)' : 'rotateY(0deg)';
+            button.textContent = isOpen ? 'Close Card' : 'Open Card';
+            if (isOpen) {
+                audio.play();
+                createFireworks();
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        }
 
-          <h2>Suggested Users</h2>
-
-          <!-- Display suggested users to follow here -->
-
-        </div>
-
-      </aside>
-
-    </main>
-
-    <footer>
-
-      <div class="social-media">
-
-        <h3>Follow us on social media:</h3>
-
-        <ul>
-
-          <li><a href="#">Twitter</a></li>
-
-          <li><a href="#">LinkedIn</a></li>
-
-          <li><a href="#">Instagram</a></li>
-
-        </ul>
-
-      </div>
-
-      <div class="legal">
-
-        <h3>Legal</h3>
-
-        <ul>
-
-          <li><a href="#">Privacy Policy</a></li>
-
-          <li><a href="#">Terms of Use</a></li>
-
-        </ul>
-
-      </div>
-
-      <div class="contact">
-
-        <h3>Contact us</h3>
-
-        <ul>
-
-          <li><a href="#">Email</a></li>
-
-          <li><a href="#">Phone</a></li>
-
-        </ul>
-
-      </div>
-
-    </footer>
-
-  </body>
-
+        function createFireworks() {
+            setInterval(() => {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = Math.random() * 100 + '%';
+                firework.style.top = Math.random() * 100 + '%';
+                firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                document.body.appendChild(firework);
+                setTimeout(() => firework.remove(), 1000);
+            }, 300);
+        }
+    </script>
+</body>
 </html>
-
-
