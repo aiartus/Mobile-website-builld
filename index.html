@@ -120,23 +120,24 @@
         Your browser does not support the audio element.
     </audio>
     <script>
-        let isOpen = false;
-        const card = document.querySelector('.card');
-        const button = document.querySelector('.open-button');
-        const audio = document.getElementById('birthdaySong');
+    let isOpen = false;
+    const card = document.querySelector('.card');
+    const button = document.querySelector('.open-button');
+    const audio = document.getElementById('birthdaySong');
 
-        function toggleCard() {
-            isOpen = !isOpen;
-            card.style.transform = isOpen ? 'rotateY(180deg)' : 'rotateY(0deg)';
-            button.textContent = isOpen ? 'Close Card' : 'Open Card';
-            if (isOpen) {
-                audio.play();
-                createFireworks();
-            } else {
-                audio.pause();
-                audio.currentTime = 0;
-            }
+    function toggleCard() {
+        isOpen = !isOpen;
+        card.style.transform = isOpen ? 'rotateY(180deg)' : 'rotateY(0deg)';
+        button.textContent = isOpen ? 'Close Card' : 'Open Card';
+        if (isOpen) {
+            audio.play().catch(e => console.log("Audio play failed:", e));
+            createFireworks();
+        } else {
+            audio.pause();
+            audio.currentTime = 0;
         }
+    }
+
 
         function createFireworks() {
             setInterval(() => {
